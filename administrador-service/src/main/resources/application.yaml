@@ -13,7 +13,7 @@ spring:
                     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         showSql: true
 server:
-    port: 6061
+    port: 6062
 eureka:
     client:
         serviceUrl:
