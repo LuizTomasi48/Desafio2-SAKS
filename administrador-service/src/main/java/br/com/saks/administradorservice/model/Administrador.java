@@ -5,6 +5,7 @@
  */
 package br.com.saks.administradorservice.model;
 
+import static br.com.saks.administradorservice.controller.Criptografia.criptografa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,4 +35,8 @@ public class Administrador {
     private String senha;
     
     private int status;
+
+    public void setSenha(String senha) {
+        this.senha = criptografa(senha);
+    }
 }
