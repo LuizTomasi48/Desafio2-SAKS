@@ -4,6 +4,7 @@
  */
 package br.com.saks.clienteservice.model;
 
+import static br.com.saks.clienteservice.controller.Criptografia.criptografa;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,5 +36,12 @@ public class Cliente implements Serializable {
     
     @Column(length=15)
     private String telefone;
+
+    public void setSenha(String senha) {
+        this.senha = criptografa(senha);
+    }
+
+    
+    
     
 }
