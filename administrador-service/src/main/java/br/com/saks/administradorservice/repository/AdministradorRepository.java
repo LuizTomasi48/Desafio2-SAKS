@@ -12,6 +12,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author 7915772
  */
-public interface ClienteRepository extends JpaRepository<Administrador, Long> {
+public interface AdministradorRepository extends JpaRepository<Administrador, Long> {
     
 }
