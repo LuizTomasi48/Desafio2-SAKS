@@ -22,9 +22,9 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class InteresseIdentity implements Serializable {
     @Column(name = "id_imovel")
-    private long idImovel;
+    private Long idImovel;
     
-    @Column (name = "id_livro")
-    private long idCliente;
+    @Column (name = "id_cliente")
+    private Long idCliente;
     
 }
