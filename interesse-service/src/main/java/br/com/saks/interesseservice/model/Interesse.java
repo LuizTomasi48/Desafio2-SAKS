@@ -5,10 +5,18 @@
  */
 package br.com.saks.interesseservice.model;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import lombok.Data;
+
 /**
  *
  * @author 7915772
  */
+@Entity
+@Data
 public class Interesse {
     
+    @EmbeddedId
+    private InteresseIndentity interesseIndentiry;
 }
