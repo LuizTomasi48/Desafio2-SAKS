@@ -7,10 +7,7 @@ package br.com.saks.imovelservice.repository;
 import br.com.saks.imovelservice.model.Imovel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- *
- * @author Bolofofo
- */
-public interface ImovelRepository extends JpaRepository <Imovel, long>{
+
+public interface ImovelRepository extends JpaRepository <Imovel, Long>{
     
 }

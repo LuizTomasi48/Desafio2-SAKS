@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Bolofofo
  */
 @RestController
-@RequestMapping("imoveis")
+@RequestMapping("/imoveis")
 public class ImovelController {
     
     @Autowired
@@ -43,7 +43,7 @@ public class ImovelController {
     public Imovel listarPeloId(@PathVariable Long id) {
         Optional<Imovel> imovelResponse = imovelRepository.findById(id);
         Imovel imovel = imovelResponse.get();
-        imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getId()));
+        imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getIdTipoImovel()));
         return imovel;
     }
     

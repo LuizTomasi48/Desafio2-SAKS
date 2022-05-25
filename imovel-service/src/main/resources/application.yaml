@@ -1,6 +1,6 @@
 spring:
-        aplication:
-                name: cliente-service
+        application:
+                name: imovel-service
         datasource:
                 url: jdbc:mysql://localhost:3306/saks
                 username: root

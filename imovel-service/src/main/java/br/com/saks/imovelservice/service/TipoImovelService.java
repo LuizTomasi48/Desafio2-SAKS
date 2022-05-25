@@ -12,11 +12,12 @@ package br.com.saks.imovelservice.service;
 
 import br.com.saks.imovelservice.model.TipoImovel;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-@FeignClient(name=“tipoImovel-service”)
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(name="tipo-imovel-service")
 public interface TipoImovelService {
-    @GetMapping(value = "/TiposImoveis/{id}")
-    TipoImovel listarPeloId(@PathVariable("id") Long id);
+    
+    @GetMapping(value = "/tipos-imoveis/{idTipoImovel}")
+    TipoImovel listarPeloId(@PathVariable("idTipoImovel") Long idTipoImovel);
 }

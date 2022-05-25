@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 import javax.persistence.Transient;
 import lombok.Data;
 
@@ -28,13 +29,17 @@ public class Imovel {
     @Transient
     TipoImovel tipoImovel;
     
+    @Column (nullable = false, name = "id_tipo_imovel")
+    private long idTipoImovel;
+    
     @Column(nullable = false, length = 100)
     private String titulo;
     
     @Column(length = 500)
     private String descricao;
     
-    @Column (nullable = false)
+    @Column (nullable = false, name = "data_criacao")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataCriacao;
     
     @Column(precision = 8, scale = 2)
