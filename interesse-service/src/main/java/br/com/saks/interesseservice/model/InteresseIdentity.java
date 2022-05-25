@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class InteresseIndentity implements Serializable {
+public class InteresseIdentity implements Serializable {
     @Column(name = "id_imovel")
     private long idImovel;
     
