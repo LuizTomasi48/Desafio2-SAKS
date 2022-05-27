@@ -29,5 +29,5 @@ public class TipoImovel {
     private String nome;
     
     @Transient
-    TipoImovel tipoImovel;
+    Imovel Imovel;
 }
