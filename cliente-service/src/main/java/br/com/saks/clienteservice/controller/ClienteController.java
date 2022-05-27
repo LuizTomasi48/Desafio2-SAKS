@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Bolofofo
  */
 @RestController
-@RequestMapping("clientes")
+@RequestMapping("/clientes")
 public class ClienteController {
     
     @Autowired
