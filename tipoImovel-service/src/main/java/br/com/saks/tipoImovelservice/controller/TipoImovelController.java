@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Bolofofo
  */
 @RestController
-@RequestMapping("TiposImoveis")
+@RequestMapping("/TiposImoveis")
 public class TipoImovelController {
     
     @Autowired
