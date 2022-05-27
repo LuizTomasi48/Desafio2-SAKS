@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 import lombok.Data;
 
 /**
@@ -24,6 +25,9 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
+    @Transient
+    Imovel imovel;
     
     @Column(length=150)
     private String nome;
