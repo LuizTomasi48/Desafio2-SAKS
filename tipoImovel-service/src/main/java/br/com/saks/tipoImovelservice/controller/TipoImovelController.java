@@ -42,8 +42,8 @@ public class TipoImovelController {
     }
     
     @PostMapping
-    public TipoImovel adicionar(@RequestBody TipoImovel cliente) {
-        return tipoImovelRepository.save(cliente);
+    public TipoImovel adicionar(@RequestBody TipoImovel tipoImovel) {    
+        return tipoImovelRepository.save(tipoImovel);
     }
     
     @PutMapping(value="/{id}")
