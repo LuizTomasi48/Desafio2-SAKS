@@ -8,6 +8,7 @@ package br.com.saks.interesseservice.repository;
 import br.com.saks.interesseservice.model.Interesse;
 import br.com.saks.interesseservice.model.InteresseIdentity;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,14 @@ import org.springframework.stereotype.Repository;
  *
  * @author 7915772
  */
-@Repository
+
 public interface InteresseRepository extends JpaRepository<Interesse, InteresseIdentity> {
-    List<Interesse> findAllByInteresseIdentityIdCliente(Long idCliente);
+
+    
+    //Optional<Interesse>
+    //findByInteresseIdentityIdCliente(Long idCliente);
+    
+    //List<Interesse> findAllByInteresseIdentityIdCliente(Long idCliente);
+
+   // public Optional<Interesse> findByInteresseIndentityIdCliente(Long idCliente);
 }

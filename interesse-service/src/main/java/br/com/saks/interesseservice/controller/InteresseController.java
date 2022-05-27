@@ -9,7 +9,9 @@ import br.com.saks.interesseservice.model.Interesse;
 import br.com.saks.interesseservice.model.InteresseIdentity;
 import br.com.saks.interesseservice.repository.InteresseRepository;
 import static com.google.common.io.Files.map;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,11 +40,44 @@ public class InteresseController {
         return interesseRepository.findAll();
     }
     
-    @GetMapping(value="/{idCliente}")
-    public List<Interesse> listarPeloIdCliente(@PathVariable Long idCliente){
-        return interesseRepository.findAllByInteresseIdentityIdCliente(idCliente);
+   /* @GetMapping(value="/{idCliente}")
+         public List<Interesse> listarPeloIdCliente(@PathVariable Long idCliente){
+            return interesseRepository.findAllByInteresseIdentityIdCliente(idCliente);
+   }*/ 
+    
+    
+    @GetMapping (value="/cliente/{idCliente}")
+    public List<Interesse> listarPeloIdCliente(@PathVariable Long idCliente) {
+       List<Interesse> interesses = interesseRepository.findAll();
+        List<Interesse> interessePorCliente = new ArrayList<>();
+        
+        for(Interesse interesse : interesses) {
+            InteresseIdentity interesseId = interesse.getInteresseIdentity();
+           if(Objects.equals(interesseId.getIdCliente(), idCliente))
+                interessePorCliente.add(interesse);
+        }
+        
+        return interessePorCliente;
     }
     
+    @GetMapping (value="/imovel/{idImovel}")
+    public List<Interesse> listarPeloIdImovel(@PathVariable Long idImovel) {
+       List<Interesse> interesses = interesseRepository.findAll();
+        List<Interesse> interessePorImovel = new ArrayList<>();
+        
+        for(Interesse interesse : interesses) {
+            InteresseIdentity interesseId = interesse.getInteresseIdentity();
+           if(Objects.equals(interesseId.getIdImovel(), idImovel))
+                interessePorImovel.add(interesse);
+        }
+        
+        return interessePorImovel;
+    }
+    
+    //@GetMapping(value = "/{idCliente}")
+    //public Optional<Interesse>listarPeloIdCliente(@PathVariable Long idCliente){
+    //    return interesseRepository.findByInteresseIndentityIdCliente(idCliente);
+    //}
 
     @PostMapping
     public Interesse adicionar(@RequestBody Interesse interesse) {
