@@ -40,11 +40,8 @@ public class ImovelController {
     }
     
     @GetMapping(value="/{id}")
-    public Imovel listarPeloId(@PathVariable Long id) {
-        Optional<Imovel> imovelResponse = imovelRepository.findById(id);
-        Imovel imovel = imovelResponse.get();
-        imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getIdTipoImovel()));
-        return imovel;
+    public Optional<Imovel> listarPeloId(@PathVariable Long id) {
+        return imovelRepository.findById(id);
     }
     
     @PostMapping
