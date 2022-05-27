@@ -29,6 +29,9 @@ public class Imovel {
     @Transient
     TipoImovel tipoImovel;
     
+    @Transient
+    Cliente cliente;
+    
     @Column (nullable = false, name = "id_tipo_imovel")
     private long idTipoImovel;
     
