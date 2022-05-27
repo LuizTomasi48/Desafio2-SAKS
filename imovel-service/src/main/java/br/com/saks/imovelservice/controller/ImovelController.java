@@ -4,10 +4,17 @@
  */
 package br.com.saks.imovelservice.controller;
 
+import br.com.saks.imovelservice.model.Cliente;
 import br.com.saks.imovelservice.model.Imovel;
+import br.com.saks.imovelservice.model.Interesse;
+import br.com.saks.imovelservice.model.InteresseIdentity;
 import br.com.saks.imovelservice.repository.ImovelRepository;
+import br.com.saks.imovelservice.service.ClienteService;
+import br.com.saks.imovelservice.service.InteresseService;
 import br.com.saks.imovelservice.service.TipoImovelService;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,14 +41,49 @@ public class ImovelController {
     @Autowired
     private TipoImovelService tipoImovelService;
     
+    @Autowired
+    private InteresseService interesseService;
+    
+    @Autowired
+    private ClienteService clienteService;
+    
     @GetMapping
     public List<Imovel> listarTodos() {
         return imovelRepository.findAll();
     }
     
-    @GetMapping(value="/{id}")
-    public Optional<Imovel> listarPeloId(@PathVariable Long id) {
-        return imovelRepository.findById(id);
+    @GetMapping(value="/clientes/{id}")
+    public Imovel listarPeloIdInteresse(@PathVariable Long id) {
+        Optional<Imovel> imovelResponse = imovelRepository.findById(id);
+        Imovel imovel = imovelResponse.get();
+        
+        imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getIdTipoImovel()));
+        
+        List<Interesse> interesses;
+        interesses = interesseService.listarPorIdImovel(id);
+
+        List<Cliente> clientes = new ArrayList<>();
+        
+        for(Interesse interesse : interesses) {
+            InteresseIdentity interesseId = interesse.getInteresseIdentity();
+
+            Cliente cliente = clienteService.listarPeloId(interesseId.getIdCliente());
+            clientes.add(cliente);
+        }
+        
+        imovel.setClientesInteresse(clientes);
+        
+        return imovel;
+        
+    }
+    
+    @GetMapping(value="/tipo/{id}")
+    public Imovel listarPeloIdTipoImovel(@PathVariable Long id) {
+        Optional<Imovel> imovelResponse = imovelRepository.findById(id);
+        Imovel imovel = imovelResponse.get();
+        imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getIdTipoImovel()));
+        return imovel;
+        
     }
     
     @PostMapping
