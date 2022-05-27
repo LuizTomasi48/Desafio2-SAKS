@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.cloud.openfeign.FeignClient;
 
-@FeignClient(name="tipoimovel-service")
+@FeignClient(name="tipoImovel-service")
 public interface TipoImovelService {
     
     @GetMapping(value = "/TiposImoveis/{idTipoImovel}")

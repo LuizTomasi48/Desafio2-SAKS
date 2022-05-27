@@ -61,12 +61,12 @@ public class ImovelController {
         
         List<Interesse> interesses;
         interesses = interesseService.listarPorIdImovel(id);
-        
+
         List<Cliente> clientes = new ArrayList<>();
         
         for(Interesse interesse : interesses) {
             InteresseIdentity interesseId = interesse.getInteresseIdentity();
-            
+
             Cliente cliente = clienteService.listarPeloId(interesseId.getIdCliente());
             clientes.add(cliente);
         }
