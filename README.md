@@ -1,0 +1,10 @@
+<h1 align = "center">🔵Desafio 2🔵</h1>
+<p align = "center">Repositório com as soluções para as questões do desafio 2 da SAKS.</p>
+<h2 align = "center">✔️Status das Questões✔️</h2>
+<p align = "center">Finalizadas 27/05/2022</p>
+<h2 align = "center">📃Como acessar? 📃</h2>
+<p align = "center" >1° Clone o repositorio</p>
+<p align = "center" >2° Inicialize o banco de dados</p>
+<p align = "center" >3° Crie um banco de dados "saks"</p>
+<p align = "center" >4° Inicie o server e depois os outros micro serviços</p>
+<p align = "center" >Observação: talvez seja necessario localizar a pasta do maven, para não dar erro</p>
