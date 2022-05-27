@@ -39,12 +39,7 @@ public class InteresseController {
     public List<Interesse> listarTodos() {
         return interesseRepository.findAll();
     }
-    
-   /* @GetMapping(value="/{idCliente}")
-         public List<Interesse> listarPeloIdCliente(@PathVariable Long idCliente){
-            return interesseRepository.findAllByInteresseIdentityIdCliente(idCliente);
-   }*/ 
-    
+      
     
     @GetMapping (value="/cliente/{idCliente}")
     public List<Interesse> listarPeloIdCliente(@PathVariable Long idCliente) {
@@ -53,7 +48,7 @@ public class InteresseController {
         
         for(Interesse interesse : interesses) {
             InteresseIdentity interesseId = interesse.getInteresseIdentity();
-           if(Objects.equals(interesseId.getIdCliente(), idCliente))
+            if(Objects.equals(interesseId.getIdCliente(), idCliente))
                 interessePorCliente.add(interesse);
         }
         
@@ -67,7 +62,7 @@ public class InteresseController {
         
         for(Interesse interesse : interesses) {
             InteresseIdentity interesseId = interesse.getInteresseIdentity();
-           if(Objects.equals(interesseId.getIdImovel(), idImovel))
+            if(Objects.equals(interesseId.getIdImovel(), idImovel))
                 interessePorImovel.add(interesse);
         }
         
@@ -80,7 +75,9 @@ public class InteresseController {
     //}
 
     @PostMapping
-    public Interesse adicionar(@RequestBody Interesse interesse) {
+    public Interesse adicionar(@RequestBody InteresseIdentity interesseIdentity) {
+        Interesse interesse = new Interesse();
+        interesse.setInteresseIdentity(interesseIdentity);
         return interesseRepository.save(interesse);
     }
        

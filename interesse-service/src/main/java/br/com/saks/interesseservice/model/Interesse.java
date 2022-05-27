@@ -18,9 +18,7 @@ import lombok.Data;
 public class Interesse {
     
     @EmbeddedId
-    private InteresseIdentity interesseIndentiry;
+    private InteresseIdentity interesseIdentity;
 
-    public InteresseIdentity getInteresseIdentity() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
