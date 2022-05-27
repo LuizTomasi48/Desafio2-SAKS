@@ -5,6 +5,7 @@
 package br.com.saks.imovelservice.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,10 @@ public class Imovel {
     TipoImovel tipoImovel;
     
     @Transient
-    Cliente cliente;
+    Interesse interesse;
+    
+    @Transient
+    InteresseIdentity interesseIdentity;
     
     @Column (nullable = false, name = "id_tipo_imovel")
     private long idTipoImovel;
@@ -50,4 +54,9 @@ public class Imovel {
     
     @Column(nullable = false)
     private int status;
+
+    public void setClientesInteresse(List<Cliente> clientes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
