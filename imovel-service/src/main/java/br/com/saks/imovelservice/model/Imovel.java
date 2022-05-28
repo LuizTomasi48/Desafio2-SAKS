@@ -30,8 +30,9 @@ public class Imovel {
     @Transient
     TipoImovel tipoImovel;
     
+    
     @Transient
-    Interesse interesse;
+    private List<Cliente> clientesInteresse;
     
     @Transient
     InteresseIdentity interesseIdentity;
@@ -55,8 +56,6 @@ public class Imovel {
     @Column(nullable = false)
     private int status;
 
-    public void setClientesInteresse(List<Cliente> clientes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }

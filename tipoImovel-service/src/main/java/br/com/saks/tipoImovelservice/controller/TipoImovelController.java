@@ -33,19 +33,25 @@ public class TipoImovelController {
     private TipoImovelRepository tipoImovelRepository;
     
     @Autowired
-    private ImovelService imovelSerivece;
+    private ImovelService imovelService;
     
     @GetMapping
     public List<TipoImovel> listarTodos() {
         return tipoImovelRepository.findAll();
     }
     
-    //@GetMapping(value="/{id}")
-    //public Optional<TipoImovel> listarPeloId(@PathVariable Long id) {
-    //    Optional<TipoImovel> tipoImovelResponse = tipoImovelRepository.findById(id);
-    //    TipoImovel tipoImovel = tipoImovelResponse.get();
-    //    tipoImovel.setImovel(imovelService.listarPeloId(tipoImovel.getIdImovel()));
-    //}
+    @GetMapping(value="/{id}")
+    public Optional<TipoImovel> listarPeloId(@PathVariable Long id) {
+        return tipoImovelRepository.findById(id);
+    }
+    
+    @GetMapping(value="/imovel/{id}")
+    public TipoImovel listarPorId(@PathVariable Long id) {
+        Optional<TipoImovel> tipoImovelResponse = tipoImovelRepository.findById(id);
+        TipoImovel tipoImovel = tipoImovelResponse.get();
+        tipoImovel.setImoveis(imovelService.listarPeloIdTipoImovel(tipoImovel.getId()));
+        return tipoImovel;
+    }
     
     @PostMapping
     public TipoImovel adicionar(@RequestBody TipoImovel tipoImovel) {    

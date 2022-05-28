@@ -10,28 +10,15 @@ package br.com.saks.imovelservice.model;
  * @author 7915772
  */
 public class Interesse {
-   private long idImovel;
-   private long idCliente;
-
-    public long getIdImovel() {
-        return idImovel;
-    }
-
-    public void setIdImovel(long idImovel) {
-        this.idImovel = idImovel;
-    }
-
-    public long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
-    }
+    InteresseIdentity interesseIdentity;
 
     public InteresseIdentity getInteresseIdentity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return interesseIdentity;
     }
-   
-   
+
+    public void setInteresseIdentity(InteresseIdentity interesseIdentity) {
+        this.interesseIdentity = interesseIdentity;
+    }
+
+
 }
