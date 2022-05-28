@@ -52,6 +52,14 @@ public class ImovelController {
         return imovelRepository.findAll();
     }
     
+     @GetMapping(value="/{id}")
+    public Imovel listarPeloId(@PathVariable Long id) {
+        Optional<Imovel> imovelResponse = imovelRepository.findById(id);
+        Imovel imovel = imovelResponse.get();
+        imovel.setTipoImovel(tipoImovelService.listarPeloId(imovel.getIdTipoImovel()));
+        return imovel;
+    }
+    
     @GetMapping(value="/clientes/{id}")
     public Imovel listarPeloIdInteresse(@PathVariable Long id) {
         Optional<Imovel> imovelResponse = imovelRepository.findById(id);
