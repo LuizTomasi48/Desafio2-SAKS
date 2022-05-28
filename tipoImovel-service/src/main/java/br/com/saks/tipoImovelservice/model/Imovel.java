@@ -11,27 +11,27 @@ import java.util.Date;
  * @author Bolofofo
  */
 public class Imovel {
-    private int id;
-    private int idTipoImovel;
+    private Long id;
+    private Long idTipoImovel;
     private String titulo;
     private String descricao;
     private Date dataCriacao;
     private double valor;
     private int status;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getIdTipoImovel() {
+    public Long getIdTipoImovel() {
         return idTipoImovel;
     }
 
-    public void setIdTipoImovel(int idTipoImovel) {
+    public void setIdTipoImovel(Long idTipoImovel) {
         this.idTipoImovel = idTipoImovel;
     }
 

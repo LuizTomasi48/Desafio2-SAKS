@@ -5,6 +5,7 @@
  */
 package br.com.saks.tipoImovelservice.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,5 +30,6 @@ public class TipoImovel {
     private String nome;
     
     @Transient
-    Imovel Imovel;
+    List<Imovel> imoveis;
+
 }
