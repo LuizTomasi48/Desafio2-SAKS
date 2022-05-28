@@ -19,6 +19,20 @@ public class Imovel {
     private double valor;
     private int status;
 
+    public Imovel(Long id, Long idTipoImovel, String titulo, String descricao, Date dataCriacao, double valor, int status) {
+        this.id = id;
+        this.idTipoImovel = idTipoImovel;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataCriacao = dataCriacao;
+        this.valor = valor;
+        this.status = status;
+    }
+
+    public Imovel() {
+    }
+
+    
     public Long getId() {
         return id;
     }

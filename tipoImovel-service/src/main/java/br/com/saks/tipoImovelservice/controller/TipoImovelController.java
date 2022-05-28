@@ -41,15 +41,15 @@ public class TipoImovelController {
     }
     
     @GetMapping(value="/{id}")
-    public Optional<TipoImovel> listarPeloId(@PathVariable Long id) {
+    public Optional<TipoImovel> listarPorId(@PathVariable Long id) {
         return tipoImovelRepository.findById(id);
     }
     
     @GetMapping(value="/imovel/{id}")
-    public TipoImovel listarPorId(@PathVariable Long id) {
+    public TipoImovel listarPeloId(@PathVariable Long id) {
         Optional<TipoImovel> tipoImovelResponse = tipoImovelRepository.findById(id);
         TipoImovel tipoImovel = tipoImovelResponse.get();
-        tipoImovel.setImoveis(imovelService.listarPeloIdTipoImovel(tipoImovel.getId()));
+        tipoImovel.setImoveisR(imovelService.listarPeloIdTipoImovel(tipoImovel.getId()));
         return tipoImovel;
     }
     

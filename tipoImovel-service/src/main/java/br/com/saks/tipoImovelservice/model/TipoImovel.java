@@ -30,6 +30,6 @@ public class TipoImovel {
     private String nome;
     
     @Transient
-    List<Imovel> imoveis;
+    List<Imovel> imoveisR;
 
 }
