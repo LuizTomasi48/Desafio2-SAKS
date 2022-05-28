@@ -61,7 +61,7 @@ public class ImovelController {
     }
     
     @GetMapping(value="/clientes/{id}")
-    public Imovel listarPeloIdInteresse(@PathVariable Long id) {
+    public Imovel listarPorId(@PathVariable Long id) {
         Optional<Imovel> imovelResponse = imovelRepository.findById(id);
         Imovel imovel = imovelResponse.get();
         
@@ -79,7 +79,7 @@ public class ImovelController {
             clientes.add(cliente);
         }
         
-        imovel.setClientesInteresse(clientes);
+        imovel.setClientesR(clientes);
         
         return imovel;
         

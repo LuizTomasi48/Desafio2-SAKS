@@ -25,14 +25,14 @@ public class Imovel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @Transient
     TipoImovel tipoImovel;
     
     
     @Transient
-    private List<Cliente> clientesInteresse;
+    private List<Cliente> clientesR;
     
     @Transient
     InteresseIdentity interesseIdentity;
