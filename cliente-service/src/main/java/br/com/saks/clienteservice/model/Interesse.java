@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.saks.imovelservice.model;
+package br.com.saks.clienteservice.model;
 
 /**
  *
- * @author 7915772
+ * @author Bolofofo
  */
 public class Interesse {
     InteresseIdentity interesseIdentity;
@@ -19,6 +18,5 @@ public class Interesse {
     public void setInteresseIdentity(InteresseIdentity interesseIdentity) {
         this.interesseIdentity = interesseIdentity;
     }
-
-
+    
 }

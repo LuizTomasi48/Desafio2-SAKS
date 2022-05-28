@@ -25,13 +25,14 @@ public class Imovel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @Transient
     TipoImovel tipoImovel;
     
+    
     @Transient
-    Interesse interesse;
+    private List<Cliente> clientesR;
     
     @Transient
     InteresseIdentity interesseIdentity;
@@ -55,8 +56,6 @@ public class Imovel {
     @Column(nullable = false)
     private int status;
 
-    public void setClientesInteresse(List<Cliente> clientes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }

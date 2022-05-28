@@ -17,6 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name="Imovel-service")
 public interface ImovelService {
     
-    @GetMapping(value = "/Imoveis/{idImovel}")
+    @GetMapping(value = "/imoveis/{idImovel}")
     Imovel listarPeloId(@PathVariable("idImovel") Long idTipoImovel);
 }

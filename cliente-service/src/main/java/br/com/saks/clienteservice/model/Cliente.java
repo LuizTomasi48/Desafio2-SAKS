@@ -6,6 +6,7 @@ package br.com.saks.clienteservice.model;
 
 import static br.com.saks.clienteservice.controller.Criptografia.criptografa;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,10 +25,13 @@ public class Cliente implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     
     @Transient
-    Imovel imovel;
+    List<Imovel> imoveisR;
+    
+    @Transient
+    InteresseIdentity interesseIdentity;
     
     @Column(length=150)
     private String nome;

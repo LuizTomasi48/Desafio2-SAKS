@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
  *
  * @author 7915772
  */
-@FeignClient(name="interesses")
+@FeignClient(name="interesse-service")
 public interface InteresseService {
-    @GetMapping(value="/interesse/imovel/{idImovel}")
+    @GetMapping(value="/interesses/imovel/{idImovel}")
     List <Interesse> listarPorIdImovel(@PathVariable("idImovel") Long idImovel);
 
    
