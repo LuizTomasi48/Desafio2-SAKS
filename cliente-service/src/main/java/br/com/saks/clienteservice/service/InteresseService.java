@@ -4,19 +4,18 @@
  */
 package br.com.saks.clienteservice.service;
 
-/**
- *
- * @author Bolofofo
- */
-
-import br.com.saks.clienteservice.model.Imovel;
+import br.com.saks.clienteservice.model.Interesse;
+import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(name="Imovel-service")
-public interface ImovelService {
-    
-    @GetMapping(value = "/imoveis/{idImovel}")
-    Imovel listarPeloId(@PathVariable("idImovel") Long idTipoImovel);
+/**
+ *
+ * @author Bolofofo
+ */
+@FeignClient(name="interesse-service")
+public interface InteresseService {
+    @GetMapping(value="/interesses/cliente/{idCliente}")
+    List<Interesse> listarPorIdCliente(@PathVariable("idCliente") Long idCliente);
 }

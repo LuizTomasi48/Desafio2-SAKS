@@ -4,8 +4,14 @@
  */
 package br.com.saks.clienteservice.controller;
 
+import br.com.saks.clienteservice.model.InteresseIdentity;
 import br.com.saks.clienteservice.model.Cliente;
+import br.com.saks.clienteservice.model.Imovel;
+import br.com.saks.clienteservice.model.Interesse;
 import br.com.saks.clienteservice.repository.ClienteRepository;
+import br.com.saks.clienteservice.service.ImovelService;
+import br.com.saks.clienteservice.service.InteresseService;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +36,12 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
     
+    @Autowired
+    private InteresseService interesseService;
+    
+    @Autowired
+    private ImovelService imovelService;
+    
     @GetMapping
     public List<Cliente> listarTodos() {
         return clienteRepository.findAll();
@@ -40,6 +52,28 @@ public class ClienteController {
         return clienteRepository.findById(id);
     }
     
+    @GetMapping(value="/interese/{id}")
+    public Cliente listarPorId(@PathVariable Long id) {
+        Optional<Cliente> clienteResponse = clienteRepository.findById(id);
+        Cliente cliente = clienteResponse.get();
+        
+        List<Interesse> interesses;
+        interesses = interesseService.listarPorIdCliente(id);
+        
+        List<Imovel> imoveis = new ArrayList<>();
+        
+        for(Interesse interesse : interesses) {
+            InteresseIdentity interesseId = interesse.getInteresseIdentity();
+            
+            Imovel imovel = imovelService.listarPeloId(interesseId.getIdImovel());
+            imoveis.add(imovel);
+        }
+        
+        cliente.setImoveisR(imoveis);
+        
+        return cliente;
+    
+    }
     @PostMapping
     public Cliente adicionar(@RequestBody Cliente cliente) {
         return clienteRepository.save(cliente);
